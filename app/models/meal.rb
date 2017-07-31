@@ -1,5 +1,5 @@
 class Meal < ApplicationRecord
-  validates :name, presence: true
+  has_many :order_positions, dependent: :destroy
 
-  has_many :order_positions
+  validates :name, presence: true
 end
