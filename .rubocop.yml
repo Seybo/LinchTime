@@ -1,0 +1,52 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Include:
+    - '**/Rakefile'
+  Exclude:
+   - 'bin/*'
+   - 'db/schema.rb'
+   - 'db/**/*'
+   - 'db/migrate/*'
+   - 'vendor/bundle/**/*'
+   - 'Gemfile'
+
+  DisplayCopNames: true
+
+Rails:
+  Enabled: true
+
+Rails/HttpPositionalArguments:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+  # Max: 100
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/CyclomaticComplexity:
+  Max: 7
+
+Metrics/AbcSize:
+  Max: 20
+  Exclude:
+    - 'app/services/mail_parser/*.rb'
+    - 'app/controllers/tasks_controller.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+  # EnforcedStyle: double_quotes
+
+Rails/Output:
+  Enabled: false
