@@ -1,0 +1,7 @@
+h1
+  | New Team Lunch
+
+= simple_form_for(@order, html: { class: 'form-horintal' }) do |f|
+  = f.simple_fields_for :order_positions do |p|
+    = p.input :meal, label: p.object.person.name
+  = f.button :submit
