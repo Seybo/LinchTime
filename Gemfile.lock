@@ -43,6 +43,8 @@ GEM
     annotate (2.7.2)
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
+    archive-zip (0.7.0)
+      io-like (~> 0.3.0)
     arel (8.0.0)
     better_errors (2.2.0)
       coderay (>= 1.0.0)
@@ -65,6 +67,9 @@ GEM
       xpath (~> 2.0)
     childprocess (0.7.1)
       ffi (~> 1.0, >= 1.0.11)
+    chromedriver-helper (1.1.0)
+      archive-zip (~> 0.7.0)
+      nokogiri (~> 1.6)
     coderay (1.1.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -116,9 +121,12 @@ GEM
       rspec (>= 2.99.0, < 4.0)
     http_parser.rb (0.6.0)
     i18n (0.8.6)
+    io-like (0.3.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -280,6 +288,7 @@ DEPENDENCIES
   bullet
   byebug
   capybara (~> 2.13)
+  chromedriver-helper
   coffee-rails (~> 4.2)
   database_cleaner
   factory_girl_rails
@@ -287,6 +296,7 @@ DEPENDENCIES
   guard-livereload (~> 2.5)
   guard-rspec
   jbuilder (~> 2.5)
+  launchy
   listen (>= 3.0.5, < 3.2)
   pry-byebug
   pry-rails
