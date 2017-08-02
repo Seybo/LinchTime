@@ -11,16 +11,25 @@
 #
 
 class OrderPosition < ApplicationRecord
+  attr_accessor :favorite
+
   belongs_to :order
   belongs_to :person
   belongs_to :meal
 
-  accepts_nested_attributes_for :meal
+  accepts_nested_attributes_for :meal, :person
 
   validates :person, :meal, :order, presence: true
 
   def autosave_associated_records_for_meal
-    self.meal = Meal.find_by_name(meal.name) || meal
-    self.meal.save!
+    existed_meal = Meal.find_by_name(meal.name.strip.downcase)
+
+    if existed_meal
+      self.meal = existed_meal
+    else
+      meal.name.downcase!
+      meal.save!
+      self.meal_id = meal.id
+    end
   end
 end
