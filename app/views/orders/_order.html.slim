@@ -1,0 +1,5 @@
+div
+  = "Order #{order.id} from #{order.created_at.to_date}"
+  = render partial: 'order_position', collection: order.order_positions
+br
+

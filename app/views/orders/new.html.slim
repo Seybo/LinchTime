@@ -1,15 +1,20 @@
 h1
-  | New Team Lunch
+  | New Team Lunch!
 
-= simple_form_for(@order, html: { class: 'form-horintal' }) do |f|
+= simple_form_for(@order, html: { class: 'form-vertical' }) do |f|
 
   = f.simple_fields_for :order_positions do |op|
     = op.input :person_id, as: :hidden
 
-    = op.simple_fields_for :meal do |m|
-      = m.input :name, label: op.object.person.name
+    .row
+      = op.simple_fields_for :meal do |m|
+        .col-sm-3
+          = m.input :name, label: op.object.person.name
 
-    = op.input :favorite, collection: op.object.person.favorite_meals,
-      label_method: :first, value_method: :first, include_blank: true
+      .col-sm-3
+        = op.input :favorite, collection: op.object.person.favorite_meals,
+          label_method: :first, value_method: :first, include_blank: true
 
   = f.button :submit
+
+= link_to 'show all', orders_path, class: 'btn btn-default'
