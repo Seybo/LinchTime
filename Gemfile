@@ -47,14 +47,15 @@ group :development, :test do
   gem 'pry-byebug'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  # gem 'selenium-webdriver'
+  # gem 'chromedriver-helper'
 
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'launchy'
   gem 'guard-rspec', require: false
+  # gem 'poltergeist'
 end
 
 group :development do

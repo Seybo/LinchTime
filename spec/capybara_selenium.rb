@@ -1,3 +1,5 @@
+# require 'capybara/poltergeist'
+# Capybara.javascript_driver = :poltergeist
 require 'capybara/rspec'
 require 'selenium/webdriver'
 
