@@ -35,6 +35,7 @@ feature 'Order creation' do
       create_orders
 
       visit root_path
+      # add data-name for tests readability
       expect(page).to have_select('order_order_positions_attributes_0_favorite', text: @meal1.name)
       select @meal2.name, from: 'order_order_positions_attributes_0_favorite'
       fill_in @p1.name, with: 'sushi'

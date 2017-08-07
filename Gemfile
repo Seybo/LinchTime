@@ -73,6 +73,7 @@ group :development do
   gem 'bullet'
   gem 'pry-rails'
   gem 'annotate', require: false
+  gem 'table_print'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

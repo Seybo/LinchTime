@@ -1,18 +1,15 @@
 class OrdersController < ApplicationController
   def new
     @order = Order.new
-    @persons = Person.all
-    @persons.each do |p|
-      @order.order_positions.new(person: p, meal: Meal.new)
-    end
+    Person.all.each { |p| @order.order_positions.new(person: p, meal: Meal.new) }
   end
 
   def index
-    @orders = Order.includes(order_positions: [:person, :meal]).recent_first.all
+    @orders = Order.includes(order_positions: [:person, :meal]).recent_first
   end
 
   def create
-    if Order.new.update(order_params)
+    if Order.new.update_attributes(order_params)
       redirect_to orders_path, notice: 'Your order is being cooked...'
     else
       redirect_to root_path, alert: 'There was an error with your order placement. Please try again'

@@ -12,12 +12,12 @@ class Person < ApplicationRecord
   validates :name, presence: true
 
   has_many :order_positions, dependent: :destroy
+  has_many :meals, through: :order_positions, dependent: :destroy
 
   def favorite_meals
-    OrderPosition.includes(:meal)
-                 .where(person: self)
-                 .group('meals.name')
-                 .order('count_id desc')
-                 .count('id')
+    order_positions.includes(:meal)
+                   .group('meals.name')
+                   .order('count_id desc')
+                   .count('id')
   end
 end

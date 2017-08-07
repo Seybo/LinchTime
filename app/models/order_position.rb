@@ -20,6 +20,7 @@ class OrderPosition < ApplicationRecord
   accepts_nested_attributes_for :meal, :person
 
   validates :person, :meal, :order, presence: true
+  validates_associated :meal, :person
 
   def autosave_associated_records_for_meal
     existed_meal = Meal.find_by_name(meal.name.strip.downcase)
